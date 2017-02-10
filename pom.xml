@@ -17,6 +17,19 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming_2.11</artifactId>
+            <version>2.1.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+            <version>2.1.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-streaming-java_2.11</artifactId>
             <version>1.1.4</version>
@@ -42,7 +55,29 @@
     </dependencies>
 
     <build>
+
         <plugins>
+
+            <plugin>
+                <groupId>net.alchim31.maven</groupId>
+                <artifactId>scala-maven-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceDir>src/main/scala</sourceDir>
+                    <testSourceDir>src/test/scala</testSourceDir>
+                </configuration>
+                <!--<configuration>-->
+                    <!--<scalaVersion>2.11.8</scalaVersion>-->
+                <!--</configuration>-->
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
